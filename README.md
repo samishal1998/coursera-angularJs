@@ -1,1 +1,2 @@
-# coursera-angularJs
+# coursera-angularJs- assignemnts solutions
+author: Samy Mishal
