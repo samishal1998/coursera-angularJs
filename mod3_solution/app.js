@@ -22,7 +22,7 @@
     NarrowItDownController.$inject = ['MenuSearchService'];
     function NarrowItDownController(MenuSearchService) {
         var ctrl = this;
-        ctrl.found = [];
+        ctrl.found = undefined;
         ctrl.searchTerm='';
 
         ctrl.filter = function(){
@@ -49,7 +49,7 @@
             .then( 
                 (result)=> {
                     var foundItems=result.data.menu_items
-                    console.log(foundItems)
+                    if(searchTerm.length == 0) return [];
                     return foundItems.filter((item)=>{ return item.description.includes(searchTerm) } )
                 }
             );
