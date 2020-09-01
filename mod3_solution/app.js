@@ -7,33 +7,33 @@
         .directive(`foundItems`,FoundItems)
 
 
-
     function FoundItems() {
         var ddo = {
-            templateUrl: 'foundItems.html',
+            templateUrl: './templates/foundItems.html',
             scope: {
-                foundItems : '@',
+                items : '<',
                 onRemove: '&'
             }
         }
-
         return ddo;
-
     }
 
 
     NarrowItDownController.$inject = ['MenuSearchService'];
     function NarrowItDownController(MenuSearchService) {
         var ctrl = this;
-        ctrl.found = {};
+        ctrl.found = [];
         ctrl.searchTerm='';
 
         ctrl.filter = function(){
 
             console.log(ctrl.searchTerm)
 
-            ctrl.found = MenuSearchService.getMatchedMenuItems(ctrl.searchTerm)
-            console.log(ctrl.found)
+            MenuSearchService.getMatchedMenuItems(ctrl.searchTerm.toLowerCase().trim()).then( (result) => {
+                ctrl.found = result;
+                console.log(ctrl.found)
+            })
+            
         }
         ctrl.remove = (index)=>{
             ctrl.found.splice(index,1)
@@ -45,7 +45,7 @@
         var service=this;
 
         service.getMatchedMenuItems = (searchTerm)=>{
-            return $http({url:"https://davids-restaurant.herokuapp.com/menu_items.json"})
+            return $http({ url:"https://davids-restaurant.herokuapp.com/menu_items.json"})
             .then( 
                 (result)=> {
                     var foundItems=result.data.menu_items

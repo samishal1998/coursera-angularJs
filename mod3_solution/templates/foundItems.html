@@ -1,0 +1,19 @@
+<div class="container row mx-auto">
+    <ul >
+        <li class="container mx-auto my-5" ng-repeat="item in items" >
+
+            <h4>
+                {{item.short_name}}  ---  {{item.name}}
+            </h4>       
+
+            <div class="row">
+                {{ item.description }}
+            </div>
+
+            <div class="row" >
+                <button class="btn btn-danger" ng-click="onRemove( {index:$index} )">Don't want this one!</button>
+            </div>
+
+        </li>
+    </ul>
+</div>
