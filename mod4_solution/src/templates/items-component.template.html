@@ -1,0 +1,25 @@
+<div class="container row mx-auto p-5 m-5" style="background: lightskyblue;border-radius: 1rem ">
+    <h2> Items in the {{ $ctrl.category.name }} Category </h2>
+    <ul >
+    
+        <li class="container mx-auto my-5" ng-repeat="item in $ctrl.itemsList" >
+
+            <h4>
+                ( {{item.short_name}} )  --  {{item.name}}
+            </h4>       
+
+            <div class="row">
+                {{ item.description }}
+            </div>
+
+<!--            <div class="row" >-->
+<!--                <button class="btn btn-danger" ng-click="onRemove( {index:$index} )">Don't want this one!</button>-->
+<!--            </div>-->
+
+        </li>
+
+    </ul>
+
+    <h5  ng-if="$ctrl.items.length == 0">Nothing Found !</h5>
+
+</div>

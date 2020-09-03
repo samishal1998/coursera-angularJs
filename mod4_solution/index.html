@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" ng-app="MenuApp">
+	<head>
+		<title>Narrow Down Your Menu Choice</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel="stylesheet" href="styles/styles.css">
+
+	</head>
+	<body>
+
+		<div class="container">
+			<ui-view></ui-view>
+		</div>
+
+
+		<!-- Libs -->
+		<script src="lib/angular.min.js"></script>
+		<script src="lib/angular-ui-router.min.js"></script>
+
+		<!-- Modules -->
+		<script src="src/Data/data.module.js"></script>
+		<script src="src/MenuApp/menuapp.module.js"></script>
+
+		<!-- Routes -->
+		<script src="src/routes.js"></script>
+
+		<!-- 'MenuApp' module artifacts -->
+		<script src="src/MenuApp/categories.component.js"></script>
+		<script src="src/MenuApp/items.component.js"></script>
+		<script src="src/MenuApp/categories-state.controller.js"></script>
+		<script src="src/MenuApp/items-state.controller.js"></script>
+
+
+		<!-- 'Data' module artifacts -->
+		<script src="src/Data/menudata.service.js"></script>
+
+	</body>
+</html>
