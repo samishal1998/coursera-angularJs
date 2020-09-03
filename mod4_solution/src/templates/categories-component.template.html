@@ -1,0 +1,22 @@
+<div class="container row mx-auto p-5 m-5" style="background: lightskyblue;border-radius: 1rem ">
+    <h2>Categories List</h2>
+    <ul >
+
+        <li class="container mx-auto my-3 py-1 px-5" ng-repeat="item in $ctrl.categoriesList" ui-sref="category({categoryShortName:item.short_name})" >
+
+            <h4 class="py-3 my-auto" >
+                ( {{item.short_name}} ) --  {{item.name}}
+            </h4>
+
+            <div class="row mx-auto" ng-if="item.special_instructions">
+                <span class="h6" > Special Instructions: </span>
+                <p class="ml-3">{{ item.special_instructions }}</p>
+            </div>
+
+        </li>
+
+    </ul>
+
+    <h5  ng-if="$ctrl.categoriesList.length == 0">Nothing Found !</h5>
+
+</div>
