@@ -1,0 +1,30 @@
+<style>
+    li{
+        margin-bottom: 1rem;
+        font-size: large;
+    }
+</style>
+<div class="container">
+    <ul ng-if="$ctrl.user">
+        <li>
+            First Name : {{$ctrl.user.first_name}}
+        </li>
+        <li>
+            Last Name : {{$ctrl.user.last_name}}
+        </li>
+        <li>
+             Email Address : {{$ctrl.user.email_address}}
+        </li>
+        <li>
+             Phone Number : {{$ctrl.user.phone_number}}
+        </li>
+        <li>
+             Favourite Dish : <br>
+            <menu-item menu-item="$ctrl.user.favourite_dish"></menu-item>
+        </li>
+
+    </ul>
+    <div ng-hide="$ctrl.user">
+        <h4 class="text-center">Not Signed Up Yet. <a ui-sref="public.signUp">Sign up Now!</a></h4>
+    </div>
+</div>

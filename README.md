@@ -11,3 +11,5 @@
 <a href="./mod3_solution"> Mod3 Solution</a>
 
 <a href="./mod4_solution"> Mod4 Solution</a>
+
+<a href="./mod5_solution"> Mod5 Solution</a>

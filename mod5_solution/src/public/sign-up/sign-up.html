@@ -1,0 +1,120 @@
+<style>
+    .mx-auto{
+        display: block;
+        width:auto;
+        margin-left : 35%;
+        margin-bottom: 1rem;
+    }
+    input {
+        color : #000000;
+        border-radius: 1rem;
+        width: 50%;
+        font-size: larger;
+        padding: 0.7rem;
+    }
+    button{
+        font-size: larger;
+        color: #61122f;
+        background: #f6b319;
+        border-radius: 1rem;
+        padding: 0.7rem;
+        display: block;
+        width:auto;
+        margin-left : 47%;
+        margin-bottom: 1rem;
+    }
+    button:disabled{
+        color: #6c4252;
+        background: #f6e3b8;
+    }
+</style>
+<fieldset>
+    <legend>Sign up</legend>
+    <form class="container" novalidate name="signUpForm">
+        <div class="mx-auto">
+            <input
+                    placeholder="First Name"
+                    type="text"
+                    name="first_name"
+                    ng-model="$ctrl.user.first_name"
+                    required>
+
+            <span class="alert-danger" ng-if="signUpForm.first_name.$error.required && signUpForm.first_name.$touched">
+                    ** First Name is required
+            </span>
+        </div>
+
+
+        <div class="mx-auto">
+            <input type="text"
+                   name="last_name"
+                   ng-model="$ctrl.user.last_name"
+                   placeholder="Last Name"
+                   required>
+
+            <span class="alert-danger" ng-if="signUpForm.last_name.$error.required && signUpForm.last_name.$touched">
+                **Last Name is required
+            </span>
+        </div>
+
+        <div class="mx-auto">
+            <input type="email"
+                   name="email_address"
+                   ng-model="$ctrl.user.email_address"
+                   required
+                    placeholder="Email Address"
+            >
+            <span class="alert-danger" ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+                Must be a valid email address: handle@domain format<br>
+            </span>
+            <span class="alert-danger" ng-if="signUpForm.email_address.$error.required && signUpForm.email_address.$touched">
+                **Your Email is required
+            </span>
+        </div>
+
+
+        <div class="mx-auto">
+            <input type="text"
+                   name="phone_number"
+                   ng-model="$ctrl.user.phone_number"
+                   placeholder="Phone Number"
+                   required
+            >
+
+            <span class="alert-danger" ng-if="signUpForm.phone_number.$error.required && signUpForm.phone_number.$touched">
+                **Phone Number is required
+            </span>
+        </div>
+
+        <div class="mx-auto">
+
+            <input type="text"
+                   name="itemShortName"
+                   ng-model="$ctrl.itemShortName"
+                   placeholder="Favourite Dish,eg.: A1 ,L4"
+                   ng-keyup="$ctrl.itemChanged()"
+                   pattern="(\w\d+)"
+                   required>
+
+            <span class="alert-danger" ng-if="signUpForm.itemShortName.$error.required && signUpForm.itemShortName.$touched">
+                **Your Favorite item menu is required<br/>
+            </span>
+            <span class="alert-danger" ng-if="signUpForm.itemShortName.$invalid && signUpForm.itemShortName.$touched">
+                 **Format should be (Letter)(Number) eg.: A1 ,L4 <br/>
+            </span>
+            <span class="alert-danger" class="h4 danger" ng-show="($ctrl.itemNotFound && $ctrl.searchedForItem)">
+               *** No such menu number exists
+            </span>
+        </div>
+
+        <button
+                ng-disabled="signUpForm.$invalid || $ctrl.itemNotFound  || !$ctrl.searchedForItem "
+                ng-click="$ctrl.signUp()"
+        >
+            Submit
+        </button>
+    </form>
+    <div style="margin-top: 10px;" ng-if="$ctrl.infoSaved">
+        <h2 class="text-center"> Your information has been saved </h2>
+    </div>
+</fieldset>
