@@ -77,10 +77,13 @@
             <input type="text"
                    name="phone_number"
                    ng-model="$ctrl.user.phone_number"
-                   placeholder="Phone Number"
+                   placeholder="Phone Number: ###-###-####"
                    required
+                   pattern="(\d{3})-(\d{3})-(\d{4})"
             >
-
+            <span class="alert-danger" ng-if="signUpForm.phone_number.$invalid && signUpForm.phone_number.$touched">
+            **Phone must be in the format ###-###-####.<br>
+            </span>
             <span class="alert-danger" ng-if="signUpForm.phone_number.$error.required && signUpForm.phone_number.$touched">
                 **Phone Number is required
             </span>
